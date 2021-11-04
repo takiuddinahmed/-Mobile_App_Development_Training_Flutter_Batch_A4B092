@@ -9,7 +9,6 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(title: Text("MCQ Practice"),),
         body: MCQ()
         ),
-        
     );
   }
 }
@@ -19,6 +18,7 @@ class MCQ extends StatefulWidget {
 }
 class _MCQState extends State<MCQ> {
   int viewIndex = 2;
+  bool visibility = false;
   var ques = [
     {"title":"What is the score of BD cricket in last match?", "options":[210,50,84,80], "correct":84},
     {"title":"Who is coach of BD cricket?", "options":["Rasel","Mehedi","Mostafiz","Akhi"], "correct":"Rashel"},
@@ -54,10 +54,10 @@ class _MCQState extends State<MCQ> {
                     padding: const EdgeInsets.only(left:10, top:10),
                     child: Text("d) ${(ques[viewIndex]["options"] as List)[3]}"),
                   ),
-                  Padding(
+                  visibility ? Padding(
                     padding: const EdgeInsets.only(top:15),
                     child: Text("Correct Answer: ${ques[viewIndex]["correct"]}"),
-                  ),
+                  ) : Text("")
                 ],
               ),
             )
@@ -66,13 +66,31 @@ class _MCQState extends State<MCQ> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
-                onPressed: ()=>{}, 
+                onPressed: ()=>{
+                  setState((){
+                    if (viewIndex >0){
+                      viewIndex --;
+                      visibility = false;
+                    }
+                  })
+                }, 
                 child: Text("Prev")),
               ElevatedButton(
-                onPressed: ()=>{}, 
-                child: Text("Show")),
+                 onPressed: ()=>{
+                  setState((){
+                    visibility = !visibility;
+                  })
+                }, 
+                child: Text(visibility? "Hide" : "Show")),
               ElevatedButton(
-                onPressed: ()=>{}, 
+                onPressed: ()=>{
+                  setState((){
+                    if (viewIndex < ques.length -1){
+                      viewIndex ++;
+                      visibility = false;
+                    }
+                  })
+                }, 
                 child: Text("Next")),
             ],
           )
