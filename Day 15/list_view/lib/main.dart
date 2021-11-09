@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:list_view/userCard.dart';
 import 'package:list_view/userListShow.dart';
 main()=>runApp(MyApp());
 
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
           leading: Icon(Icons.contact_phone),
           title: Text("Contact App"),
         ),
-        body: UserListShow(),
+        // body: UserListShow(),
+        body: UserCards(),
        )
     );
   }
