@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
-
+import 'package:list_view/user.dart';
 class UserForm extends StatefulWidget {
-  const UserForm({ Key? key }) : super(key: key);
+
+  late var back;
+  UserForm(this.back);
 
   @override
-  _UserFormState createState() => _UserFormState();
+  _UserFormState createState() => _UserFormState(back);
 }
 
-class _UserFormState extends State<UserForm> {
-  TextEditingController nameController = TextEditingController();
 
-  String name = "Not assigned";
+class _UserFormState extends State<UserForm> {
+  late var back;
+  _UserFormState(this.back);
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController contactController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+
+  String name = "";
+  String contactNumber = "";
+  String email = "";
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +35,41 @@ class _UserFormState extends State<UserForm> {
               border: OutlineInputBorder()
             ),
           ),
+          SizedBox(height: 10,),
+          TextField(
+            controller: contactController,
+            decoration: InputDecoration(
+              label: Text("Contact Number"),
+              border: OutlineInputBorder()
+            ),
+          ),
+          
+          SizedBox(height: 10,),
+          TextField(
+            controller: emailController,
+            decoration: InputDecoration(
+              label: Text("Email"),
+              border: OutlineInputBorder()
+            ),
+          ),
           ElevatedButton(
             onPressed: ()=>{
               setState((){
                 name = nameController.text;
+                contactNumber = contactController.text;
+                email = emailController.text;
+                User usr = User(name,contactNumber,email,"image.jfif");
+                users.add(usr);
+                nameController.clear();
+                contactController.clear();
+                emailController.clear();
+                back();
               })
+
             }, 
             child: Text("Submit")
             ),
-          Text("$name")
+          
         ],
       )
     );
