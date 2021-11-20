@@ -1,3 +1,4 @@
+import 'package:drawer/views.dart';
 import 'package:flutter/material.dart';
 main()=>runApp(MyApp());
 class MyApp extends StatelessWidget {
@@ -13,8 +14,21 @@ class HomeApp extends StatefulWidget {
   @override
   _HomeAppState createState() => _HomeAppState();
 }
-
 class _HomeAppState extends State<HomeApp> {
+  int _viewIndex = 2;
+
+  changeView(int index){
+    setState(() {
+      _viewIndex = index;
+    });
+  }
+
+  List views = [
+    HomeView(),
+    ContactView(),
+    MessageView()
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,12 +36,17 @@ class _HomeAppState extends State<HomeApp> {
         title: Text("Drawer App"),
       ),
       drawer: Drawer(
-        child: MyDrawer(),
+        child: MyDrawer(changeView),
       ),
+      body: views[_viewIndex],
     );
   }
 }
 class MyDrawer extends StatelessWidget {
+  late var changeView ;
+
+  MyDrawer(this.changeView){}
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,28 +61,33 @@ class MyDrawer extends StatelessWidget {
           ),
           Text("Engg. Mr. Maznu Sir", style: TextStyle( fontSize: 20),),
           Divider( thickness: 1,),
-          DrawerItemCard(icon: Icon(Icons.home), title: "Home",),
-          DrawerItemCard(icon: Icon(Icons.contact_phone), title: "Contact",),
-          DrawerItemCard(icon: Icon(Icons.message), title: "Message",),
+          ListTile(
+            title: DrawerItemCard(icon: Icon(Icons.home), title: "Home",),
+            onTap: ()=>{changeView(0)},
+          ),
+          ListTile(
+            title: DrawerItemCard(icon: Icon(Icons.contact_phone), title: "Contact",),
+            onTap: ()=>{changeView(1)},
+          ),
+          ListTile(
+            title: DrawerItemCard(icon: Icon(Icons.message), title: "Message",),
+            onTap: ()=>{changeView(2)},
+          )
       ],),
     );
   }
 }
-
 class DrawerItemCard extends StatelessWidget {
   late Icon icon;
   late String title;
-
   DrawerItemCard({required this.icon, required this.title}){}
-
   @override
   Widget build(BuildContext context) {
     return Card(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                children: [
-                  
+                children: [ 
                   icon,
                   SizedBox(width: 20,),
                   Text("$title", style: TextStyle(fontSize: 20),)
