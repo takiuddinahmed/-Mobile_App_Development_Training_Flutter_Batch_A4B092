@@ -16,19 +16,16 @@ class HomeApp extends StatefulWidget {
 }
 class _HomeAppState extends State<HomeApp> {
   int _viewIndex = 2;
-
   changeView(int index){
     setState(() {
       _viewIndex = index;
     });
   }
-
   List views = [
     HomeView(),
     ContactView(),
     MessageView()
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,9 +41,7 @@ class _HomeAppState extends State<HomeApp> {
 }
 class MyDrawer extends StatelessWidget {
   late var changeView ;
-
   MyDrawer(this.changeView){}
-
   @override
   Widget build(BuildContext context) {
     return Container(
