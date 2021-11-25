@@ -13,6 +13,17 @@ class _MyAppState extends State<MyApp> {
   int income = 300;
   int expense = 600;
 
+  addIncome(int addIncomeValue){
+    setState(() {
+      income += addIncomeValue;
+    });
+  }
+  addExpense(int addExpenseValue){
+    setState(() {
+      expense += addExpenseValue;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -32,8 +43,8 @@ class _MyAppState extends State<MyApp> {
         body: TabBarView(
           children: [
             DashboardView(expense: expense, income: income,),
-            IncomeView(income: income),
-            ExpenseView(expense: expense,)
+            IncomeView(income: income, addIncome: addIncome,),
+            ExpenseView(expense: expense,addExpense: addExpense,)
           ],
         )
       ),
