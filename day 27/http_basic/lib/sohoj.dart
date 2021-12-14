@@ -2,9 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
 class SohojApp extends StatefulWidget {
-
-
   @override
   _SohojAppState createState() => _SohojAppState();
 }
@@ -20,6 +19,7 @@ class _SohojAppState extends State<SohojApp> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    loadData();
   }
 
   loadData()async {
