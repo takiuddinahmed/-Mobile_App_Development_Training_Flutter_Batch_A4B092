@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "722673496129",
+    "project_id": "fir-contact-app-c550b",
+    "storage_bucket": "fir-contact-app-c550b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722673496129:android:bafd76b09807ae388b96c0",
+        "android_client_info": {
+          "package_name": "com.example.firebase_contact_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722673496129-96i1e3rme2fuud5kv4qokflk4nqfibvv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN9WXSYRnvNCuZJxqPliOsagNkaE4aFR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722673496129-96i1e3rme2fuud5kv4qokflk4nqfibvv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

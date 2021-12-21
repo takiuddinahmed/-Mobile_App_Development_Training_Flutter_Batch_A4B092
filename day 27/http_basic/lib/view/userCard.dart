@@ -9,12 +9,9 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Container(
-        height: 120,
-        width: 250,
+      child: Padding(
         padding: EdgeInsets.all(10),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(child: Image.network(user.avatar),),
             Text("First Name : ${user.first_name}"),

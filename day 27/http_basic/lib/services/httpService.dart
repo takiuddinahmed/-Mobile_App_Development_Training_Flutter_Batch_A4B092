@@ -1,17 +1,21 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:http_basic/configs/httpConfig.dart';
-import 'package:http_basic/models/responsedata.dart';
 import 'package:http_basic/models/user.dart';
 
 class HttpService {
 
-  static Future<ResponseData> getSingleUserData (int userId) async {
-    var url = Uri.https(HttpConfig.baseUrl,"/api/users/$userId");
+  static Future<User> getData () async {
+    var url = Uri.https("reqres.in","/api/users/2");
     var res =  await http.get(url);
-    if(res.statusCode == 200){
-      return ResponseData(data: jsonDecode(res.body));
-    }
-    return ResponseData(error: "Data fetch error with status code ${res.statusCode}", data:{});
-}
+    var jsonData = jsonDecode(res.body);
+    User user = User.fromJson(jsonData["data"]);
+    // print("")
+    return user;
+
+    // if(res.statusCode == 200){
+    //   return user;
+    // }
+    // return "Failed to load with status code ${res.statusCode}";
+    // return User(id: "", first_name: first_name, last_name: last_name, email: email, avatar: avatar)
+  }
 }
