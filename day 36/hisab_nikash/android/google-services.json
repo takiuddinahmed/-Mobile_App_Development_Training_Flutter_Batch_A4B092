@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "695334012233",
+    "project_id": "hisab-nikash-4bb24",
+    "storage_bucket": "hisab-nikash-4bb24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695334012233:android:7af761deb9285536038698",
+        "android_client_info": {
+          "package_name": "com.example.hisab_nikash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695334012233-or4idu9op6cl6075t86p3r4q1hc43k30.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqoZvJdlPAbVUQ1f7264ZLnugM981Wq-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695334012233-or4idu9op6cl6075t86p3r4q1hc43k30.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
