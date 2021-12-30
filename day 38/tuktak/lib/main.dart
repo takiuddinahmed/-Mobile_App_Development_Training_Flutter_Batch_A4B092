@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tuktak/form.dart';
 import 'package:tuktak/models/count.dart';
 
 void main() {
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
             IconButton(onPressed: (){}, icon: const Icon(Icons.delete)),
           ],
           ),
-          body: Home(),
+          body: MyForm(),
       )
     );
   }
